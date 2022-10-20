@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&quot;auto&quot;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar/my_favicon.JPG">
+  <link rel="icon" type="image/png" href="/img/avatar/my_favicon.JPG">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="jwx543">
+  <meta name="keywords" content="">
+  <title>Spark安装 - JWX543</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jwx543.github.io","root":"/","version":"1.8.7","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JWX543</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/937633.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Spark安装">
+              
+                Spark安装
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-18 12:12" pubdate>
+        2022年4月18日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Spark安装</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年4月18日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Spark安装"><a href="#Spark安装" class="headerlink" title="Spark安装"></a>Spark安装</h1><h2 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h2><p>all</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">sudo apt-get install vim-gtk<br></code></pre></td></tr></table></figure>
+<h2 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h2><p>all</p>
+<ol>
+<li><p>更新软件包列表：</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">sudo apt-get update<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>安装openjdk-8-jdk：</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">sudo apt-get install openjdk-<span class="hljs-number">8</span>-jdk<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查看java版本，看看是否安装成功：</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">java -version<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Hadoop集群"><a href="#Hadoop集群" class="headerlink" title="Hadoop集群"></a>Hadoop集群</h2><p>参考：<a target="_blank" rel="noopener" href="https://blueskyson.github.io/2020/03/06/hadoop-installation/">https://blueskyson.github.io/2020/03/06/hadoop-installation/</a></p>
+<ol>
+<li><p>官网下载Apache Hadoop， 解压并移动</p>
+<p> master</p>
+<p> 地址：<a target="_blank" rel="noopener" href="https://hadoop.apache.org/releases.html">https://hadoop.apache.org/releases.html</a> 或 <a target="_blank" rel="noopener" href="https://dlcdn.apache.org/hadoop/common/">https://dlcdn.apache.org/hadoop/common/</a></p>
+<p> 解压：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sudo tar -zxvf hadoop-3.3.1.tar.gz -C &#x2F;usr&#x2F;local<br>mv .&#x2F;hadoop-3.3.1&#x2F; .&#x2F;hadoop<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>编辑环境变数</p>
+<p> all</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">vim ~&#x2F;.bashrc<br></code></pre></td></tr></table></figure>
+<p> 打开bashrc，环境变数设置如下:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs tsx"># ~&#x2F;.bashrc: executed by bash(1) for non-login shells.<br># see &#x2F;usr&#x2F;share&#x2F;doc&#x2F;bash&#x2F;examples&#x2F;startup-files (in the package bash-doc)<br># for examples<br><br>. . .<br><br># hadoop environment variables<br>export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;&quot;java-1.8.0-openjdk-amd64&quot;<br>export CLASSPTH&#x3D;$JAVA_HOME&#x2F;lib<br>export HADOOP_INSTALL&#x3D;&#x2F;usr&#x2F;local&#x2F;&quot;hadoop&quot;<br>export PATH&#x3D;$PATH:$HADOOP_INSTALL&#x2F;bin<br>export PATH&#x3D;$PATH:$HADOOP_INSTALL&#x2F;sbin<br>export HADOOP_MAPRED_HOME&#x3D;$HADOOP_INSTALL<br>export HADOOP_COMMON_HOME&#x3D;$HADOOP_INSTALL<br>export YARN_HOME&#x3D;$HADOOP_INSTALL<br>export HADOOP_COMMON_LIB_NATIVE_DIR&#x3D;$HADOOP_INSTALL&#x2F;lib&#x2F;native<br>export HADOOP_OPTS&#x3D;&quot;-Djava.library.path&#x3D;$HADOOP_INSTALL&#x2F;lib&quot;<br>export HADOOP_CLASSPATH&#x3D;$(hadoop classpath)<br><br>. . .<br></code></pre></td></tr></table></figure>
+<p> 查看是否安装成功</p>
+<p> master成功，slave还未安装</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">source ~&#x2F;.bashrc<br>hadoop version<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>编辑Hadoop 设定档</p>
+<p> master</p>
+<p> 首先指定file system 的主机位置</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">cd &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;<br>vim core-site.xml<br></code></pre></td></tr></table></figure>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- namenode的位置 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>hadoop.tmp.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>file:/usr/local/hadoop/tmp<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Abase for other temporary directories.<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>fs.defaultFS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hdfs://master:9000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p> 指定datanode 及namenode 的储存位置，这里以/usr/local/hadoop 为例</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">vim hdfs-site.xml<br></code></pre></td></tr></table></figure>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- hdfs的數據副本數量 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.replication<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- namenode的儲存位置 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.namenode.name.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>file:/usr/local/hadoop/tmp/dfs/name<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- datanode的儲存位置 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.datanode.data.dir<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>file:/usr/local/hadoop/tmp/dfs/data<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p> 修改mapred-site.xml</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">vim mapred-site.xml<br></code></pre></td></tr></table></figure>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>mapreduce.framework.name<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>yarn<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p> 修改yarn-site.xml</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">vim yarn-site.xml<br></code></pre></td></tr></table></figure>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>	<span class="hljs-comment">&lt;!-- Site specific YARN configuration properties --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>mapreduce_shuffle<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>master<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p> 修改<a target="_blank" rel="noopener" href="http://hadoop-env.sh/">hadoop-env.sh</a></p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml">export HDFS_NAMENODE_USER=root<br>export HDFS_DATANODE_USER=root<br>export HDFS_SECONDARYNAMENODE_USER=root<br>export YARN_RESOURCEMANAGER_USER=root<br>export YARN_NODEMANAGER_USER=root<br>export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>设置workers文件</p>
+<p> all</p>
+</li>
+<li><p>先设置好四台虚拟机 /etc/hostname 中的主机名（分别为master、slave01、slave02、slave03）</p>
+<p> all</p>
+</li>
+<li><p>然后设置四台虚拟机 /etc/hosts 加入主机名和对应ip，例如：</p>
+<p> all</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tsx"># 输入对应的ip地址<br>116.63.170.127 master<br>ip2 slave01<br>ip3 slave02<br>ip4 slave03<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>ping测试</p>
+<p> all</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tsx">ping master<br>ping slave01<br>ping slave02<br>ping slave03<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>ssh免密，在三台服务器上同时操作</p>
+<p> all</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tsx">ssh-keygen -t rsa<br>ssh-copy-id master<br>ssh-copy-id slave01<br>ssh-copy-id slave02<br>ssh-copy-id slave03<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在 master 节点主机上执行：</p>
+<p> master</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs tsx">cd &#x2F;usr&#x2F;local&#x2F;<br>rm -rf .&#x2F;hadoop&#x2F;tmp # 删除临时文件rm -rf<br>rm -rf .&#x2F;hadoop&#x2F;logs&#x2F;* # 删除日志文件<br>tar -zcf ~&#x2F;hadoop.master.tar.gz .&#x2F;hadoop<br>cd ~<br>scp .&#x2F;hadoop.master.tar.gz slave01:&#x2F;home&#x2F;<br>scp .&#x2F;hadoop.master.tar.gz slave02:&#x2F;home&#x2F;<br>scp .&#x2F;hadoop.master.tar.gz slave03:&#x2F;home&#x2F;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在slave01,slave02,slave03节点上执行：</p>
+<p>slave</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sudo rm -rf &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F; #删掉原来的hadoop<br>sudo tar -zxf ~&#x2F;hadoop.master.tar.gz -C &#x2F;usr&#x2F;local<br>sudo chown -R root &#x2F;usr&#x2F;local&#x2F;hadoop<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>开始运作Hadoop</p>
+<p>all</p>
+<p>启动顺序为 namenode格式化-&gt;start-&gt;stop，之后启动就不需要格式化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tsx">cd &#x2F;usr&#x2F;local&#x2F;hadoop<br>bin&#x2F;hdfs namenode -format<br>sbin&#x2F;start-all.sh<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="安装Scala"><a href="#安装Scala" class="headerlink" title="安装Scala"></a>安装Scala</h2><p>all</p>
+<ol>
+<li>解压，移到/usr/local/share</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml">sudo tar -zxvf scala-2.13.6.tgz -C /usr/local/<br>mv ./scala-2.13.6/ ./scala<br></code></pre></td></tr></table></figure>
+<ol>
+<li><p>修改环境变量</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sudo chmod -R 777 &#x2F;usr&#x2F;local&#x2F;scala&#x2F;<br>vim &#x2F;etc&#x2F;profile<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">export PATH&#x3D;&quot;$PATH:&#x2F;usr&#x2F;local&#x2F;scala&#x2F;bin&quot;<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Spark集群"><a href="#Spark集群" class="headerlink" title="Spark集群"></a>Spark集群</h2><ol>
+<li><p>解压， 移到/usr/local</p>
+<p> master</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sudo tar -zxvf spark-3.1.2-bin-hadoop3.2.tgz -C &#x2F;usr&#x2F;local<br>mv .&#x2F;spark-3.1.2-bin-hadoop3.2&#x2F; .&#x2F;spark<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置spark环境变量</p>
+<p> all</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">vim ~&#x2F;.bashrc<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tsx">export SPARK_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;spark<br>export PATH&#x3D;$PATH:$SPARK_HOME&#x2F;bin:$SPARK_HOME&#x2F;sbin<br># export PATH&#x3D;$SPARK_HOME&#x2F;bin:$PATH<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">source ~&#x2F;.bashrc<br>spark-shell    # test<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>Spark配置</p>
+<p> master节点主机：</p>
+<p> master</p>
+<ul>
+<li><p>配置slaves文件 将 slaves.template 拷贝到 slaves</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">cd &#x2F;usr&#x2F;local&#x2F;spark&#x2F;<br>cp .&#x2F;conf&#x2F;workers.template .&#x2F;conf&#x2F;workers<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>slaves文件设置Worker节点。编辑workers内容,把默认内容localhost替换成如下内容：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tsx">master #master主机既作为master，也作为worker<br>slave01<br>slave02<br>slave03<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置spark-env.sh文件, 将 spark-env.sh.template 拷贝到 <a target="_blank" rel="noopener" href="http://spark-env.sh/">spark-env.sh</a></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">cp .&#x2F;conf&#x2F;spark-env.sh.template .&#x2F;conf&#x2F;spark-env.sh<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://xn--spark-env-4s8x893k.sh/">编辑spark-env.sh</a>,添加如下内容：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs tsx">export SPARK_DIST_CLASSPATH&#x3D;$(&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;bin&#x2F;hadoop classpath)<br>export HADOOP_CONF_DIR&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;etc&#x2F;hadoop<br>export SCALA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;share&#x2F;scala<br>export HADOOP_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;hadoop<br>export SPARK_MASTER_IP&#x3D;192.168.0.125 #指定 Spark 集群 Master 节点的 IP 地址；<br>export SPARK_MASTER_PORT&#x3D;7077<br>export SPARK_MASTER_HOST&#x3D;192.168.0.125   #指定 Spark 集群 Master 节点的 IP 地址；<br>export SPARK_EXECUTOR_MEMORY&#x3D;256m #大小看虚拟机内存<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置好后，将Master主机上的/usr/local/spark文件夹复制到各个节点上。在Master主机上执行如下命令：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tsx">cd &#x2F;usr&#x2F;local&#x2F;tar -zcf ~&#x2F;spark.master.tar.gz .&#x2F;spark<br>cd ~<br>scp .&#x2F;spark.master.tar.gz slave01:&#x2F;home&#x2F;<br>scp .&#x2F;spark.master.tar.gz slave02:&#x2F;home&#x2F;<br>scp .&#x2F;spark.master.tar.gz slave03:&#x2F;home&#x2F;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在slave01,slave02,slave03节点操作：</p>
+<p>  slave</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sudo rm -rf &#x2F;usr&#x2F;local&#x2F;spark&#x2F;<br>sudo tar -zxf ~&#x2F;spark.master.tar.gz -C &#x2F;usr&#x2F;local<br>sudo chown -R root &#x2F;usr&#x2F;local&#x2F;spark<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>启动Hadoop集群</p>
+<ul>
+<li><p>启动Spark集群前，要先启动Hadoop集群。在Master节点主机上运行如下命令：</p>
+<p>  all</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;sbin&#x2F;start-all.sh<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>启动Spark集群</p>
+<ul>
+<li><p>启动Master节点, 在Master节点主机上运行如下命令：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsx">cd &#x2F;usr&#x2F;local&#x2F;spark&#x2F;<br>sbin&#x2F;start-master.sh -h 103.47.82.178 #（master的ip）<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在Master节点上运行jps命令，可以看到多了个Master进程：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">jps<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>启动所有Slave节点, 在Master节点主机上运行如下命令：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sbin&#x2F;start-slaves.sh<br></code></pre></td></tr></table></figure>
+<p>  分别在slave01、slave02、slave03节点上运行jps命令，可以看到多了个Worker进程</p>
+</li>
+<li><p>在浏览器上查看Spark独立集群管理器的集群信息 在master主机上打开浏览器，访问<a target="_blank" rel="noopener" href="http://master:8080">http://master:8080</a></p>
+</li>
+</ul>
+</li>
+<li><p>关闭</p>
+<p> all</p>
+<ul>
+<li><p>关闭Master节点</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sbin&#x2F;stop-master.sh<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>关闭Worker节点</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">sbin&#x2F;stop-slaves.sh<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>关闭Hadoop集群</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tsx">&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;sbin&#x2F;stop-all.sh<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="HDFS传文件"><a href="#HDFS传文件" class="headerlink" title="HDFS传文件"></a>HDFS传文件</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43584847/article/details/98874497">如何上传文件到hdfs？_努力变得不菜的菜鸡的博客-CSDN博客_上传文件到hdfs</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Spark/">Spark</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/18/%E4%BA%91%E8%AE%A1%E7%AE%97-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">配置虚拟网络，检测不同网络传输效率</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/18/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
+                        <span class="hidden-mobile">必知必会</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <i class="iconfont icon-copyright"></i> 2020-2021 <i class="iconfont icon-love"></i> JWX543 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>

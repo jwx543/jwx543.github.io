@@ -1,0 +1,751 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&quot;auto&quot;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar/my_favicon.JPG">
+  <link rel="icon" type="image/png" href="/img/avatar/my_favicon.JPG">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="jwx543">
+  <meta name="keywords" content="">
+  <title>OpenGauss - JWX543</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jwx543.github.io","root":"/","version":"1.8.7","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JWX543</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/937633.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="OpenGauss">
+              
+                OpenGauss
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-18 12:12" pubdate>
+        2022年4月18日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">OpenGauss</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年4月18日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="数据库实验报告"><a href="#数据库实验报告" class="headerlink" title="数据库实验报告"></a>数据库实验报告</h1><p><strong>实验时间：2022年4月3日</strong></p>
+<h2 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1. 环境搭建"></a>1. 环境搭建</h2><h3 id="1-1-实验介绍"><a href="#1-1-实验介绍" class="headerlink" title="1.1 实验介绍"></a>1.1 实验介绍</h3><ol>
+<li><p>关于本实验：</p>
+<p>本实验通过在华为云上购买弹性云服务器ECS，了解弹性云服务器ECS配置流程，掌握弹性云服务器ECS的连接和操作。</p>
+</li>
+<li><p>实验目的：</p>
+<ol>
+<li>掌握ECS弹性云服务器购买流程；</li>
+<li>掌握ECS弹性云服务器配置参数。</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-2-准备私有云VPC环境"><a href="#1-2-准备私有云VPC环境" class="headerlink" title="1.2 准备私有云VPC环境"></a>1.2 准备私有云VPC环境</h3><ol>
+<li><p>登录华为云账号，在虚拟私有云VPC页面下，点击“访问控制台”。<a target="_blank" rel="noopener" href="https://www.huaweicloud.com/product/vpc.html">地址</a></p>
+</li>
+<li><p>在网络控制台界面中，点击“创建虚拟私有云”并填写如下配置信息，然后点击“立即创建”。</p>
+<p><img src="\img\opengauss\image-20220403131714925.png" srcset="/img/loading.gif" alt="image-20220403131714925"></p>
+</li>
+<li><p>返回到网络控制台，可看见VPC与子网已创建。</p>
+<p><img src="\img\opengauss\image-20220403131831373.png" srcset="/img/loading.gif" alt="image-20220403131831373"></p>
+</li>
+<li><p>在“安全组”页面中找到default安全组。点击“配置规则”。选择“入方向规则”页签，点击“添加规则”。协议端口选择“全部放通”，点击“确定”，完成安全组规则的添加。</p>
+<p><img src="\img\opengauss\image-20220403132221626.png" srcset="/img/loading.gif" alt="image-20220403132221626"></p>
+</li>
+</ol>
+<h3 id="1-3-购买云服务器ECS并登录"><a href="#1-3-购买云服务器ECS并登录" class="headerlink" title="1.3 购买云服务器ECS并登录"></a>1.3 购买云服务器ECS并登录</h3><ol>
+<li><p>登录华为云账号，在<a target="_blank" rel="noopener" href="https://www.huaweicloud.com/product/ecs.html">弹性云服务器ECS页面</a>下，点击“立即购买”。填写如下基础配置信息:</p>
+<p><img src="\img\opengauss\image-20220403132835303.png" srcset="/img/loading.gif" alt="image-20220403132835303"></p>
+<p><img src="\img\opengauss\image-20220403132858192.png" srcset="/img/loading.gif" alt="image-20220403132858192"></p>
+<p>网络配置信息：</p>
+<p><img src="\img\opengauss\image-20220403133042945.png" srcset="/img/loading.gif" alt="image-20220403133042945"></p>
+<p><img src="\img\opengauss\image-20220403133110950.png" srcset="/img/loading.gif" alt="image-20220403133110950"></p>
+<p>高级配置信息:</p>
+<p><img src="\img\opengauss\image-20220403133445538.png" srcset="/img/loading.gif" alt="image-20220403133445538"></p>
+</li>
+<li><p>购买完成后，在云服务器控制台可以看到正常运行中的ECS，记录弹性IP地址。</p>
+<p><img src="\img\opengauss\image-20220403133633920.png" srcset="/img/loading.gif" alt="image-20220403133633920"></p>
+</li>
+<li><p>使用Xshell 7教育版连接服务器，连接结果如下图所示</p>
+<p><img src="\img\opengauss\image-20220403133833247.png" srcset="/img/loading.gif" alt="image-20220403133833247"></p>
+</li>
+</ol>
+<h2 id="2-openGauss数据安装及基本操作"><a href="#2-openGauss数据安装及基本操作" class="headerlink" title="2. openGauss数据安装及基本操作"></a>2. openGauss数据安装及基本操作</h2><h3 id="2-1-实验介绍"><a href="#2-1-实验介绍" class="headerlink" title="2.1 实验介绍"></a>2.1 实验介绍</h3><ol>
+<li><p>关于本实验：</p>
+<p>本实验通过第三方工具，完成openGauss的编译安装。</p>
+</li>
+<li><p>实验目的：</p>
+<ol>
+<li>掌握第三方工具库编译；</li>
+<li>掌握openGauss编译安装。</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-2-编译前准备"><a href="#2-2-编译前准备" class="headerlink" title="2.2 编译前准备"></a>2.2 编译前准备</h3><ol>
+<li><p>创建openGauss数据库的安装用户jwx及其属组dbgrp。</p>
+<p><img src="\img\opengauss\image-20220403134040490.png" srcset="/img/loading.gif" alt="image-20220403134040490"></p>
+</li>
+<li><p>修改jwx用户密码。</p>
+<p><img src="\img\opengauss\image-20220403134147451.png" srcset="/img/loading.gif" alt="image-20220403134147451"></p>
+</li>
+<li><p>创建openGauss源码存放及openGauss安装路径。</p>
+<p><img src="\img\opengauss\image-20220403134234578.png" srcset="/img/loading.gif" alt="image-20220403134234578"></p>
+</li>
+<li><p>下载第三方编译库。</p>
+<p><img src="\img\opengauss\image-20220403134641453.png" srcset="/img/loading.gif" alt="image-20220403134641453"></p>
+</li>
+<li><p>解压下载好的第三方编译库，并重命名为binarylibs。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -zxvf openGauss-third_party_binarylibs.tar.gz<br>mv openGauss-third_party_binarylibs/ binarylibs/<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403134917820.png" srcset="/img/loading.gif" alt="image-20220403134917820"></p>
+</li>
+<li><p>下载openGauss源码。</p>
+<p><img src="\img\opengauss\image-20220403135116679.png" srcset="/img/loading.gif" alt="image-20220403135116679"></p>
+</li>
+<li><p>上传cmake包。</p>
+<p>使用Xftp将<a target="_blank" rel="noopener" href="https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-linux-aarch64.tar.gz">cmake-3.20.0-linux-aarch64.tar.gz</a>包上传至服务器/usr/local/src/下：</p>
+<p><img src="\img\opengauss\image-20220403135324548.png" srcset="/img/loading.gif" alt="image-20220403135324548"></p>
+<p>然后进行解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /usr/local/src/<br>tar -zxvf cmake-3.20.0-linux-aarch64.tar.gz<br>chmod 755 /usr/local/src/cmake-3.20.0-linux-aarch64/<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403135418497.png" srcset="/img/loading.gif" alt="image-20220403135418497"></p>
+</li>
+<li><p>使用yum安装依赖包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y libaio-devel ncurses-devel pam-devel libffi-devel libtool libtool-devel libtool-ltdl openssl-devel bison golang flex dkms-2.6.1-5.oe1.noarch python3-devel patch<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403135507400.png" srcset="/img/loading.gif" alt="image-20220403135507400"></p>
+</li>
+<li><p>替换python版本。</p>
+<p>将python3的链接设置为python的。</p>
+<p><img src="\img\opengauss\image-20220403135608122.png" srcset="/img/loading.gif" alt="image-20220403135608122"></p>
+</li>
+<li><p>修改/opt/software路径的用户所属组及权限。</p>
+<p><img src="\img\opengauss\image-20220403135717325.png" srcset="/img/loading.gif" alt="image-20220403135717325"></p>
+</li>
+</ol>
+<h3 id="2-3-数据库安装编译"><a href="#2-3-数据库安装编译" class="headerlink" title="2.3 数据库安装编译"></a>2.3 数据库安装编译</h3><ol>
+<li><p>切换jwx用户并设定jwx用户的环境变量。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">su - jwx<br>vim ~/.bash_profile<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403140049115.png" srcset="/img/loading.gif" alt="image-20220403140049115"></p>
+<p>使环境变量生效。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source ~/.bash_profile<br></code></pre></td></tr></table></figure></li>
+<li><p>进入openGauss源码下，生成配置文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /opt/software/openGauss-server/<br>./configure --gcc-version=7.3.0 --prefix=$GAUSSHOME CFLAGS=&quot;-O0&quot; --enable-debug --without-readline --without-zlib --enable-cassert --enable-thread-safety CC=g++ --3rd=$BINARY_PATH --with-python<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403140227053.png" srcset="/img/loading.gif" alt="image-20220403140227053"></p>
+</li>
+<li><p>执行make命令进行编译。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">make -j8<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403140654199.png" srcset="/img/loading.gif" alt="image-20220403140654199"></p>
+</li>
+<li><p>执行make install安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">make install<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403140935026.png" srcset="/img/loading.gif" alt="image-20220403140935026"></p>
+</li>
+<li><p>初始化数据库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">gs_initdb -D $PGDATA --nodename=jwxsql --locale=&quot;en_US.UTF-8&quot; -Atrust -w &#x27;Nju+2022&#x27;<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403141134603.png" srcset="/img/loading.gif" alt="image-20220403141134603"></p>
+</li>
+<li><p>启动数据库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">gs_ctl start -D /opt/software/openGauss/data -Z single_node -l logfile<br>ps -ef|grep jwx	# 查看数据库是否启动成功。<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403141247688.png" srcset="/img/loading.gif" alt="image-20220403141247688"></p>
+</li>
+<li><p>数据库登录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">gsql -d postgres -p 5432 -r<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403141339397.png" srcset="/img/loading.gif" alt="image-20220403141339397"></p>
+</li>
+<li><p>查询数据库版本。</p>
+<p><img src="\img\opengauss\image-20220403141425067.png" srcset="/img/loading.gif" alt="image-20220403141425067"></p>
+</li>
+<li><p>退出数据库。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># \q<br></code></pre></td></tr></table></figure>
+<h3 id="2-4-关卡验证"><a href="#2-4-关卡验证" class="headerlink" title="2.4 关卡验证"></a>2.4 关卡验证</h3></li>
+<li><p>对数据库状态进行验证。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">gs_ctl status<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403141531889.png" srcset="/img/loading.gif" alt="image-20220403141531889"></p>
+</li>
+<li><p>对数据库进程进行截图验证，包含数据库服务器的主机名。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -ef|grep jwx<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403141614716.png" srcset="/img/loading.gif" alt="image-20220403141614716"></p>
+</li>
+<li><p>简单描述关卡一中，安装数据库所需要的步骤。完成以上信息，表明关卡一完成。</p>
+<ol>
+<li>下载第三方编译库</li>
+<li>下载openGauss源码</li>
+<li>下载相关依赖包并配置环境</li>
+<li>对openGauss源码编译安装</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-openGauss的原生DB4AI引擎"><a href="#3-openGauss的原生DB4AI引擎" class="headerlink" title="3. openGauss的原生DB4AI引擎"></a>3. openGauss的原生DB4AI引擎</h2><h3 id="3-1-实验介绍"><a href="#3-1-实验介绍" class="headerlink" title="3.1 实验介绍"></a>3.1 实验介绍</h3><ol>
+<li><p>关于本实验：</p>
+<p>本实验关卡，在安装完成的openGauss数据库上，使用DB4AI的功能，利用openGauss的DB4AI性能进行房价的预测。</p>
+</li>
+<li><p>实验目的：</p>
+<ol>
+<li>掌握openGauss数据库的DB4AI的功能。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-2-利用DB4AI原生AI引擎训练并预测模型"><a href="#3-2-利用DB4AI原生AI引擎训练并预测模型" class="headerlink" title="3.2 利用DB4AI原生AI引擎训练并预测模型"></a>3.2 利用DB4AI原生AI引擎训练并预测模型</h3><ol>
+<li><p>在数据库中创建一张表，用于数据的训练与预测。</p>
+<p>在jwx用户环境下，登录数据库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">gsql -d postgres -p 5432 -r<br></code></pre></td></tr></table></figure>
+<p>创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> houses;<br>postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> houses (id <span class="hljs-type">INT</span>, tax <span class="hljs-type">INT</span>, bedroom <span class="hljs-type">INT</span>, bath <span class="hljs-type">FLOAT</span>, price <span class="hljs-type">INT</span>,  size <span class="hljs-type">INT</span>, lot <span class="hljs-type">INT</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> houses <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-number">1</span> ,  <span class="hljs-number">590</span> ,       <span class="hljs-number">2</span> ,    <span class="hljs-number">1</span> ,  <span class="hljs-number">50000</span> ,  <span class="hljs-number">770</span> , <span class="hljs-number">22100</span>),<br>(<span class="hljs-number">2</span> , <span class="hljs-number">1050</span> ,       <span class="hljs-number">3</span> ,    <span class="hljs-number">2</span> ,  <span class="hljs-number">85000</span> , <span class="hljs-number">1410</span> , <span class="hljs-number">12000</span>),<br>(<span class="hljs-number">3</span> ,   <span class="hljs-number">20</span> ,       <span class="hljs-number">3</span> ,    <span class="hljs-number">1</span> ,  <span class="hljs-number">22500</span> , <span class="hljs-number">1060</span> ,  <span class="hljs-number">3500</span>),<br>(<span class="hljs-number">4</span> ,  <span class="hljs-number">870</span> ,       <span class="hljs-number">2</span> ,    <span class="hljs-number">2</span> ,  <span class="hljs-number">90000</span> , <span class="hljs-number">1300</span> , <span class="hljs-number">17500</span>),<br>(<span class="hljs-number">5</span> , <span class="hljs-number">1320</span> ,       <span class="hljs-number">3</span> ,    <span class="hljs-number">2</span> , <span class="hljs-number">133000</span> , <span class="hljs-number">1500</span> , <span class="hljs-number">30000</span>),<br>(<span class="hljs-number">6</span> , <span class="hljs-number">1350</span> ,       <span class="hljs-number">2</span> ,    <span class="hljs-number">1</span> ,  <span class="hljs-number">90500</span> ,  <span class="hljs-number">820</span> , <span class="hljs-number">25700</span>),<br>(<span class="hljs-number">7</span> , <span class="hljs-number">2790</span> ,       <span class="hljs-number">3</span> ,  <span class="hljs-number">2.5</span> , <span class="hljs-number">260000</span> , <span class="hljs-number">2130</span> , <span class="hljs-number">25000</span>),<br>(<span class="hljs-number">8</span> ,  <span class="hljs-number">680</span> ,       <span class="hljs-number">2</span> ,    <span class="hljs-number">1</span> , <span class="hljs-number">142500</span> , <span class="hljs-number">1170</span> , <span class="hljs-number">22000</span>),<br>(<span class="hljs-number">9</span> , <span class="hljs-number">1840</span> ,       <span class="hljs-number">3</span> ,    <span class="hljs-number">2</span> , <span class="hljs-number">160000</span> , <span class="hljs-number">1500</span> , <span class="hljs-number">19000</span>),<br>(<span class="hljs-number">10</span> , <span class="hljs-number">3680</span> ,       <span class="hljs-number">4</span> ,    <span class="hljs-number">2</span> , <span class="hljs-number">240000</span> , <span class="hljs-number">2790</span> , <span class="hljs-number">20000</span>),<br>(<span class="hljs-number">11</span> , <span class="hljs-number">1660</span> ,       <span class="hljs-number">3</span> ,    <span class="hljs-number">1</span> ,  <span class="hljs-number">87000</span> , <span class="hljs-number">1030</span> , <span class="hljs-number">17500</span>),<br>(<span class="hljs-number">12</span> , <span class="hljs-number">1620</span> ,       <span class="hljs-number">3</span> ,    <span class="hljs-number">2</span> , <span class="hljs-number">118600</span> , <span class="hljs-number">1250</span> , <span class="hljs-number">20000</span>),<br>(<span class="hljs-number">13</span> , <span class="hljs-number">3100</span> ,       <span class="hljs-number">3</span> ,    <span class="hljs-number">2</span> , <span class="hljs-number">140000</span> , <span class="hljs-number">1760</span> , <span class="hljs-number">38000</span>),<br>(<span class="hljs-number">14</span> , <span class="hljs-number">2070</span> ,       <span class="hljs-number">2</span> ,    <span class="hljs-number">3</span> , <span class="hljs-number">148000</span> , <span class="hljs-number">1550</span> , <span class="hljs-number">14000</span>),<br>(<span class="hljs-number">15</span> ,  <span class="hljs-number">650</span> ,       <span class="hljs-number">3</span> ,  <span class="hljs-number">1.5</span> ,  <span class="hljs-number">65000</span> , <span class="hljs-number">1450</span> , <span class="hljs-number">12000</span>);<br></code></pre></td></tr></table></figure></li>
+<li><p>通过 \d 命令观察新创建的表 house 结构。</p>
+<p><img src="\img\opengauss\image-20220403141906793.png" srcset="/img/loading.gif" alt="image-20220403141906793"></p>
+</li>
+<li><p>通过CREATE MODEL语句，基于SVM算法创建一个二分类模型。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">CREATE</span> MODEL house_binary_classifier <span class="hljs-keyword">USING</span> svm_classification FEATURES tax, bath, size TARGET price <span class="hljs-operator">&lt;</span> <span class="hljs-number">100000</span> <span class="hljs-keyword">FROM</span> houses;<br></code></pre></td></tr></table></figure>
+<p>执行CREATE MODEL 语句后，会开启模型的训练，并输出训练过程中使用的超参数信息：</p>
+<p><img src="\img\opengauss\image-20220403141958289.png" srcset="/img/loading.gif" alt="image-20220403141958289"></p>
+</li>
+<li><p>在gs_model_warehouse系统表中查看训练后的模型信息</p>
+<p><img src="\img\opengauss\image-20220403142054175.png" srcset="/img/loading.gif" alt="image-20220403142054175"></p>
+<p>通过系统表的返回信息可以看到训练过程的预测准确率为 0.666667。</p>
+<p>这对于二分类来说准确率并不高，我们后面将尝试通过超参数来提升模型表现。</p>
+</li>
+<li><p>使用 <code>DROP MODEL</code>语句删除模型。</p>
+<p><img src="\img\opengauss\image-20220403142132930.png" srcset="/img/loading.gif" alt="image-20220403142132930"></p>
+</li>
+<li><p>使用更优的超参数提高SVM算法的训练表现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">CREATE</span> MODEL house_binary_classifier <span class="hljs-keyword">USING</span> svm_classification FEATURES tax, bath, size TARGET price <span class="hljs-operator">&lt;</span> <span class="hljs-number">100000</span> <span class="hljs-keyword">FROM</span> houses <span class="hljs-keyword">WITH</span> batch_size<span class="hljs-operator">=</span><span class="hljs-number">1</span>, learning_rate<span class="hljs-operator">=</span><span class="hljs-number">0.001</span>;<br></code></pre></td></tr></table></figure>
+<p>在该步骤中，修改训练时的学习率（learning_rate）为0.001，批大小（batch_size）设置为1。</p>
+<p><img src="\img\opengauss\image-20220403142206082.png" srcset="/img/loading.gif" alt="image-20220403142206082"></p>
+</li>
+<li><p>观察新模型的信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> gs_model_warehouse <span class="hljs-keyword">WHERE</span> modelname <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;house_binary_classifier&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p>在返回信息中，我们可以看到新模型的表现：</p>
+<p><img src="\img\opengauss\image-20220403142306963.png" srcset="/img/loading.gif" alt="image-20220403142306963"></p>
+</li>
+<li><p>使用<code>PREDICT BY</code>语句预测样本数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">SELECT</span> tax, bath, size, price, price <span class="hljs-operator">&lt;</span> <span class="hljs-number">100000</span> <span class="hljs-keyword">AS</span> price_actual, PREDICT <span class="hljs-keyword">BY</span> house_binary_classifier (FEATURES tax, bath, size) <span class="hljs-keyword">AS</span> price_pred <span class="hljs-keyword">FROM</span> houses;<br></code></pre></td></tr></table></figure>
+<p>返回结果为：</p>
+<p><img src="\img\opengauss\image-20220403142341489.png" srcset="/img/loading.gif" alt="image-20220403142341489"></p>
+<p>Price_pred 列的输出结果即为预测结果，price_actual 列的结果为真实值。</p>
+</li>
+<li><p>通过 CREATE MODEL 语句创建一个逻辑回归（logistic regression）模型。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">CREATE</span> MODEL house_logistic_classifier <span class="hljs-keyword">USING</span> logistic_regression FEATURES tax, bath, size target price <span class="hljs-operator">&lt;</span> <span class="hljs-number">100000</span> <span class="hljs-keyword">FROM</span> houses <span class="hljs-keyword">WITH</span> learning_rate<span class="hljs-operator">=</span><span class="hljs-number">0.001</span>;<br></code></pre></td></tr></table></figure>
+<p><img src="\img\opengauss\image-20220403142406972.png" srcset="/img/loading.gif" alt="image-20220403142406972"></p>
+</li>
+<li><p>利用训练好的逻辑回归模型预测数据，并与SVM算法进行比较。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">SELECT</span> tax, bath, size, price, price <span class="hljs-operator">&lt;</span> <span class="hljs-number">100000</span> <span class="hljs-keyword">AS</span> price_actual, PREDICT <span class="hljs-keyword">BY</span> house_binary_classifier (FEATURES tax, bath, size) <span class="hljs-keyword">AS</span> price_svm_pred, PREDICT <span class="hljs-keyword">BY</span> house_logistic_classifier (FEATURES tax, bath, size) <span class="hljs-keyword">AS</span> price_logistic_pred <span class="hljs-keyword">FROM</span> houses;<br></code></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<p><img src="\img\opengauss\image-20220403142433653.png" srcset="/img/loading.gif" alt="image-20220403142433653"></p>
+</li>
+</ol>
+<h3 id="3-3-关卡验证"><a href="#3-3-关卡验证" class="headerlink" title="3.3 关卡验证"></a>3.3 关卡验证</h3><ol>
+<li><p>SVM算法训练后的模型信息及预测：</p>
+<p><img src="\img\opengauss\image-20220403142306963.png" srcset="/img/loading.gif" alt="image-20220403142306963"></p>
+<p><img src="\img\opengauss\image-20220403142341489.png" srcset="/img/loading.gif" alt="image-20220403142341489"></p>
+</li>
+<li><p>逻辑回归模型预测数据结果</p>
+<p><img src="\img\opengauss\image-20220403142433653.png" srcset="/img/loading.gif" alt="image-20220403142433653"></p>
+</li>
+</ol>
+<h2 id="4-创建镜像和释放资源"><a href="#4-创建镜像和释放资源" class="headerlink" title="4. 创建镜像和释放资源"></a>4. 创建镜像和释放资源</h2><h3 id="4-1-实验介绍"><a href="#4-1-实验介绍" class="headerlink" title="4.1 实验介绍"></a>4.1 实验介绍</h3><ol>
+<li><p>关于本实验：</p>
+<p>本实验通过在华为云上删除弹性云服务器ECS实例，帮助学员和读者掌握在华为云上清除弹性云服务器ECS资源。此外，本实验通过镜像保存操作。</p>
+</li>
+<li><p>实验目的：</p>
+<ol>
+<li>掌握弹性云服务器资源释放操作；</li>
+<li>熟悉华为云操作。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-2-创建镜像"><a href="#4-2-创建镜像" class="headerlink" title="4.2 创建镜像"></a>4.2 创建镜像</h3><ol>
+<li><p>创建镜像，选择系统盘镜像</p>
+<p><img src="\img\opengauss\image-20220403143216852.png" srcset="/img/loading.gif" alt="image-20220403143216852"></p>
+</li>
+<li><p>查看列表，发现镜像创建成功</p>
+<p><img src="\img\opengauss\image-20220403143943395.png" srcset="/img/loading.gif" alt="image-20220403143943395"></p>
+</li>
+</ol>
+<h3 id="4-3-删除的云服务器"><a href="#4-3-删除的云服务器" class="headerlink" title="4.3 删除的云服务器"></a>4.3 删除的云服务器</h3><ol>
+<li><p>打开云服务器控制台，在需要删除的云服务器后面选择“更多&gt;删除”。</p>
+<p><img src="\img\opengauss\image-20220403144025674.png" srcset="/img/loading.gif" alt="image-20220403144025674"></p>
+</li>
+<li><p>在弹出对话框中勾选“释放云服务器绑定的弹性公网IP地址”和“删除云服务器挂载的数据盘”，然后点击“是”。</p>
+<p><img src="\img\opengauss\image-20220403144100847.png" srcset="/img/loading.gif" alt="image-20220403144100847"></p>
+</li>
+<li><p>查看到列表中已没有资源时，表示弹性云服务器已删除。</p>
+<p><img src="\img\opengauss\image-20220403144229069.png" srcset="/img/loading.gif" alt="image-20220403144229069"></p>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                      <a class="hover-with-bg" href="/tags/OpenGauss/">OpenGauss</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/18/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B7%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数据库刷题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/08/%E7%AE%97%E6%B3%95-%E5%88%B7%E9%A2%98%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                        <span class="hidden-mobile">刷题小知识</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <i class="iconfont icon-copyright"></i> 2020-2021 <i class="iconfont icon-love"></i> JWX543 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
